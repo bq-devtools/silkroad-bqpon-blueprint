@@ -1,0 +1,447 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# BQPON (v1.0)
+BQPON API is a discount coupon service based on rules.
+
+# Group Campaign
+Create, modify and delete coupon campaigns
+
+## Create, list [/v1.0/coupon/{shopId}/campaign]
+
+This enpoint allow to create and list campaigns. 
+
+### Create new campaign [POST]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the user has no permission to create campaigns in the shop|
+|409   |Conflict|When there is a campaign with the same name in the shop|
+|422   |invalid_entity|JSON doesn't correspond to Campaign or is empty|
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+    
+    + Body         
+    
+            {
+                "name": "Descuento 5% navidad 2013",
+                "description":"descripcion",
+                "numCoupons" : 100,
+                "algh" : "SHORT_CODE",
+                "conditions":[
+                ],
+                "couponReusable":true,
+                "userCanRedeemJustOneCoupon":true,
+                "campaignOffer": {},
+                "from" : "03-May-2014",
+                "to" : "30-May-2014"
+            }
++ Response 201
+
+### List campaigns [GET]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the user has no permission to list campaigns in the shop.
+
++ Request
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+        
++ Response 200 (application/json)
+
+        [
+            {
+                "id":"id1",
+                "name": "Descuento 5% navidad 2013",
+                "shopId":"nubico",
+                "description":"descripcion",
+                "numCoupons" : 100,
+                "algh" : "SHORT_CODE",
+                "conditions":[
+                ],
+                "couponReusable":true,
+                "userCanRedeemJustOneCoupon":true,
+                "campaignOffer": {},
+                "from" : "03-May-2014",
+                "to" : "30-May-2014"
+            },
+            {
+                "id":"id2",
+                "name": "Descuento 5% navidad 2014",
+                "shopId":"nubico",
+                "description":"descripcion",
+                "numCoupons" : 100,
+                "algh" : "SHORT_CODE",
+                "conditions":[
+                ],
+                "couponReusable":true,
+                "userCanRedeemJustOneCoupon":true,
+                "campaignOffer": {},
+                "from" : "03-May-2014",
+                "to" 
+            }
+        ]
+
+
+## Update, delete and read campaigns [/v1.0/coupon/{shopId}/campaign/{campaignId}]
+
+This enpoint allow to update, delete and read campaigns. 
+
+### Update campaign [PUT]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign/{campaignId}
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the user has no permission to update campaigns in the shop.
+|404   |not_found|When campaign does not exist.
+|422   |invalid_entity|JSON doesn't correspond to Campaign or is empty|
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+
+    + Body                                 
+
+            {
+                "id":"id1",
+                "name": "Descuento 5% navidad 2013",
+                "description":"descripcion",
+                "numCoupons" : 100,
+                "algh" : "SHORT_CODE",
+                "conditions":[
+                ],
+                "couponReusable":true,
+                "userCanRedeemJustOneCoupon":true,
+                "campaignOffer": {},
+                "from" : "03-May-2014",
+                "to" : "30-May-2014"
+            }
+        
++ Response 200
+
+### Delete campaign [DELETE]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign/{campaignId}
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the user has no permission to delete campaigns in the shop.
+|404   |not_found|When campaign does not exist.
+
++ Request
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+        
++ Response 204
+
+### Get campaign [GET]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign/{campaignId}
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the user has no permission to get campaigns in the shop.
+|404   |not_found|When campaign does not exist.
+
++ Request
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+
+        
++ Response 200 (application/json)
+        
+        {
+            "id":"id1",
+            "name": "Descuento 5% navidad 2013",
+            "shopId":"nubico",
+            "description":"descripcion",
+            "numCoupons" : 100,
+            "algh" : "SHORT_CODE",
+            "conditions":[
+            ],
+            "couponReusable":true,
+            "userCanRedeemJustOneCoupon":true,
+            "campaignOffer": {},
+            "from" : "03-May-2014",
+            "to" : "30-May-2014"
+        }
+
+## List campaign coupons [/v1.0/coupon/{shopId}/campaign/{campaignId}/coupons]
+
+This enpoint allows to list campaign coupons. 
+
+### List campaign coupons [GET]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign/{campaignId}/coupons
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the user has no permission to list coupons of the shop.
+|404   |not_found|When the campaign does not exist.
+
++ Request
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+        
+        
++ Response 200 (application/json)
+
+        [
+            {
+                "code":"code1",
+                "shopId":"nubico",
+                "campaignId":"campaignId",
+                "redeemedBy": [
+                    1,
+                    3
+                ]
+            }
+        ]
+
+# Group Redeem and validate coupons
+
+Validates and redeems coupons
+
+## Validate coupon [/v1.0/coupon/{shopId}/validate]
+
+This enpoint allows to validate a coupon. 
+
+### Validate coupon [POST]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/validate
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the application has no permission to get validate coupons of the shop.
+|403   |forbidden|When the coupon does not match the rules.
+|404   |not_found|When the coupon does not exist.
+|422   |invalid_entity|JSON doesn't correspond to validate coupon request|
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+
+    + Body    
+    
+            {
+                "couponCode": "EDKLJBID",
+                "userId" : 100,
+                "order" : {
+                    "items": [
+                        {
+                            "id":"itemId1",
+                            "type":"subscription",
+                            "quantity":1,
+                            "unitPrice":100
+                        },
+                        {
+                            "id":"itemId2",
+                            "type":"book",
+                            "quantity":1,
+                            "unitPrice":10
+                        }
+                    ]
+                },
+                "customProperties": {
+                    "customProperty1":"value",
+                    "customProperty2":"value"
+                }
+            }
+        
++ Response 200 (application/json)
+
+        {
+            "code" : "SUCCESS",
+            "campaignId":"id",
+            "couponOffer" : "custom json"
+        }
+        
+## Redeem coupon [/v1.0/coupon/{shopId}/redeem]
+
+This enpoint allows to redeem a coupon. 
+
+### Redeem coupon [POST]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/redeem
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the application has no permission to get redeem coupons of the shop.
+|403   |forbidden|When the coupon does not match the rules.
+|404   |not_found|When the coupon does not exist.
+|422   |invalid_entity|JSON doesn't correspond to redeem coupon request|
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+
+    + Body    
+    
+            {
+                "couponCode": "EDKLJBID",
+                "userId" : 100,
+                "order" : {
+                    "items": [
+                        {
+                            "id":"itemId1",
+                            "type":"subscription",
+                            "quantity":1,
+                            "unitPrice":100
+                        },
+                        {
+                            "id":"itemId2",
+                            "type":"book",
+                            "quantity":1,
+                            "unitPrice":10
+                        }
+                    ]
+                },
+                "customProperties": {
+                    "customProperty1":"value",
+                    "customProperty2":"value"
+                }
+            }
+        
++ Response 200 (application/json)
+
+        {
+            "code" : "SUCCESS",
+            "campaignId":"id",
+            "couponOffer" : "custom json"
+        }
+
+## Unredeem coupon [/v1.0/coupon/{shopId}/unredeem]
+
+This enpoint allows to undo a coupon redemption.
+
+### Unredeem coupon [PUT]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/unredeem
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+
+    + Body    
+    
+            {
+                "couponCode": "EDKLJBID",
+                "userId" : 100,
+            }
+        
++ Response 204
+
+# Group create, list and delete dsls
+
+Creates and validates dsls
+
+## Create dsl and list dsls [/v1.0/coupon/{shopId}/rules]
+
+This enpoint allows to save and list dsls. 
+
+### Save dsl [POST]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/rules
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the application has no permission to save a dsl in the shop.
+|422   |invalid_entity|When the dsl is invalid
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+
+    + Body
+    
+            {
+                "dsl":"some dsl",
+                "code":"dsl code"
+            }
+        
++ Response 201 (application/json)
+
+        {
+            "id" : "id",
+            "dsl":"Some dsl",
+            "code":"dsl code",
+            "shopId" : "shopId"
+        }
+ 
+### List dsls [GET]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/rules
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the application has no permission to list shop dsls.
+
++ Request
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+        
++ Response 2010 (application/json)
+
+        [
+            {
+                "id" : "id",
+                "dsl":"Some dsl",
+                "shopId" : "shopId"
+            },
+            {
+                "id" : "id2",
+                "dsl":"Some dsl2",
+                "shopId" : "shopId"
+            }
+        ]
+        
+        
+## Delete dsl [/v1.0/coupon/{shopId}/rules/{dslId}]
+
+This enpoint allows to delete a dsl. 
+
+### Delete dsl [DELETE]
+Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/rules/{dslId}
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401   |unauthorized|When the application has no permission to delete dsls of the shop.
+|404   |not_found|When the dsl does not exist.
+
++ Request
+
+    + Headers
+
+            Authorization : Bearer {token}                  
+        
++ Response 200
