@@ -106,7 +106,7 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campa
 |------|-----|-----------|
 |401   |unauthorized|When the user has no permission to update campaigns in the shop.
 |404   |not_found|When campaign does not exist.
-|422   |invalid_entity|JSON doesn't correspond to Campaign or is empty|
+|422   |invalid_entity|JSON doesn't correspond to Campaign or is empty or the campaign rules are bad or already exists a campaign with same name.|
 
 + Request (application/json)
 
