@@ -132,7 +132,7 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campa
                 "to" : "30-May-2014"
             }
         
-+ Response 200
++ Response 204
 
 ### Delete campaign [DELETE]
 Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign/{campaignId}
@@ -381,15 +381,8 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/rules
                 "code":"dsl code"
             }
         
-+ Response 201 (application/json)
++ Response 201
 
-        {
-            "id" : "id",
-            "dsl":"Some dsl",
-            "code":"dsl code",
-            "shopId" : "shopId"
-        }
- 
 ### List dsls [GET]
 Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/rules
 
@@ -439,4 +432,4 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/rules
 
             Authorization : Bearer {token}                  
         
-+ Response 200
++ Response 204
