@@ -62,6 +62,21 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campa
 ### List campaigns [GET]
 Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign
 
+###Request Fields###
+|Name|Description|Type|Required|
+|-----|-----|-----------|:--:|
+|name|Campaign's name|String|*|
+|description|the campaign details|String|*|
+|shopId|the shop's identifier that offer the campaign|String|*|
+|numCoupons|number of cupons per campaign|Integer|*|
+|algh|type of algoritm to generate coupon's id|String|*|
+|conditions|specification to apply the offer|String|
+|campaignOffer|product disount|String|*|
+|couponsReusable|number of times that a coupon can be used|Boolean|*|
+|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*|
+|from|campaign started|Date|
+|to|campaign ended|Date|
+
 ###Errors###
 |Status|Error|Description|
 |------|-----|-----------|
