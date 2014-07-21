@@ -21,16 +21,9 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campa
 |description|the campaign details|String|*|
 |shopId|the shop's identifier that offer the campaign|String|*|
 |numCoupons|number of cupons per campaign|Integer|*|
-|algh||String|*|
-|conditions||String|
-|campaignOffer|product disount|Array|*|
-|campaignOffer.description|discount'details|String|*|
-|campaignOffer.quantity|Amount of the product|Integer|*|
-|campaignOffer.discount||Array|*|
-|campaignOffer.discount.cash|amount to reduce|Array|
-|campaignOffer.discount.cash.amount|Amount to discount|String|*|
-|campaignOffer.discount.cash.currency|currency code for the price (ISO code)|String|*|
-|campaignOffer.discount.percentage|percentage to discount|Double|*|           
+|algh|type of algoritm to generate coupon's id|String|*|
+|conditions|specification to apply the offer|String|
+|campaignOffer|product disount|String|*|
 |couponsReusable|number of times that a coupon can be used|Boolean|*|
 |userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*|
 |from|campaign started|Date|
