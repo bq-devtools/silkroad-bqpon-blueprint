@@ -284,6 +284,14 @@ This enpoint allows to validate a coupon.
 ### Validate coupon [POST]
 Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/validate
 
+###Request Fields###
+|Name|Description|Type|Required|
+|-----|-----|-----------|:--:|
+|couponCode|Coupon code|String|*|
+|userId|User id|String|*|
+|items|List of items in the cart|List<Item>|*|
+|customProperties|Special properties for shop plugin|Map<String, String>|
+
 ###Errors###
 |Status|Error|Description|
 |------|-----|-----------|
@@ -303,22 +311,20 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/valid
             {
                 "couponCode": "EDKLJBID",
                 "userId" : 100,
-                "order" : {
-                    "items": [
-                        {
-                            "id":"itemId1",
-                            "type":"subscription",
-                            "quantity":1,
-                            "unitPrice":100
-                        },
-                        {
-                            "id":"itemId2",
-                            "type":"book",
-                            "quantity":1,
-                            "unitPrice":10
-                        }
-                    ]
-                },
+                "items": [
+                    {
+                        "id":"itemId1",
+                        "type":"subscription",
+                        "quantity":1,
+                        "unitPrice":100
+                    },
+                    {
+                        "id":"itemId2",
+                        "type":"book",
+                        "quantity":1,
+                        "unitPrice":10
+                    }
+                ],
                 "customProperties": {
                     "customProperty1":"value",
                     "customProperty2":"value"
@@ -340,6 +346,14 @@ This enpoint allows to redeem a coupon.
 ### Redeem coupon [POST]
 Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/redeem
 
+###Request Fields###
+|Name|Description|Type|Required|
+|-----|-----|-----------|:--:|
+|couponCode|Coupon code|String|*|
+|userId|User id|String|*|
+|items|List of items in the cart|List<Item>|*|
+|customProperties|Special properties for shop plugin|Map<String, String>|
+
 ###Errors###
 |Status|Error|Description|
 |------|-----|-----------|
@@ -359,22 +373,20 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/redee
             {
                 "couponCode": "EDKLJBID",
                 "userId" : 100,
-                "order" : {
-                    "items": [
-                        {
-                            "id":"itemId1",
-                            "type":"subscription",
-                            "quantity":1,
-                            "unitPrice":100
-                        },
-                        {
-                            "id":"itemId2",
-                            "type":"book",
-                            "quantity":1,
-                            "unitPrice":10
-                        }
-                    ]
-                },
+                "items": [
+                    {
+                        "id":"itemId1",
+                        "type":"subscription",
+                        "quantity":1,
+                        "unitPrice":100
+                    },
+                    {
+                        "id":"itemId2",
+                        "type":"book",
+                        "quantity":1,
+                        "unitPrice":10
+                    }
+                ],
                 "customProperties": {
                     "customProperty1":"value",
                     "customProperty2":"value"
@@ -395,6 +407,13 @@ This enpoint allows to undo a coupon redemption.
 
 ### Unredeem coupon [PUT]
 Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/unredeem
+
+
+###Request Fields###
+|Name|Description|Type|Required|
+|-----|-----|-----------|:--:|
+|couponCode|Coupon code|String|*|
+|userId|User id|String|*|
 
 + Request (application/json)
 
