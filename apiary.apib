@@ -17,15 +17,15 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campa
 ###Request Fields###
 |Name|Description|Type|Required|
 |-----|-----|-----------|:--:|
-|name|Campaign's name|String|*|
-|description|the campaign details|String|*|
-|shopId|the shop's identifier that offer the campaign|String|*|
-|numCoupons|number of cupons per campaign|Integer|*|
-|algh|type of algoritm to generate coupon's id|String|*|
+|name|Campaign's name|String|*
+|description|the campaign details|String|*
+|shopId|the shop's identifier that offer the campaign|String|*
+|numCoupons|number of cupons per campaign|Integer|*
+|algh|type of algoritm to generate coupon's id|String|*
 |conditions|specification to apply the offer|String|
-|campaignOffer|product disount|String|*|
-|couponsReusable|number of times that a coupon can be used|Boolean|*|
-|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*|
+|campaignOffer|product disount|String|*
+|couponsReusable|number of times that a coupon can be used|Boolean|*
+|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*
 |from|campaign started|Date|
 |to|campaign ended|Date|
 
@@ -65,15 +65,15 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campa
 ###Request Fields###
 |Name|Description|Type|Required|
 |-----|-----|-----------|:--:|
-|name|Campaign's name|String|*|
-|description|the campaign details|String|*|
-|shopId|the shop's identifier that offer the campaign|String|*|
-|numCoupons|number of cupons per campaign|Integer|*|
-|algh|type of algoritm to generate coupon's id|String|*|
+|name|Campaign's name|String|*
+|description|the campaign details|String|*
+|shopId|the shop's identifier that offer the campaign|String|*
+|numCoupons|number of cupons per campaign|Integer|*
+|algh|type of algoritm to generate coupon's id|String|*
 |conditions|specification to apply the offer|String|
-|campaignOffer|product disount|String|*|
-|couponsReusable|number of times that a coupon can be used|Boolean|*|
-|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*|
+|campaignOffer|product disount|String|*
+|couponsReusable|number of times that a coupon can be used|Boolean|*
+|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*
 |from|campaign started|Date|
 |to|campaign ended|Date|
 
@@ -134,15 +134,15 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campa
 ###Request Fields###
 |Name|Description|Type|Required|
 |-----|-----|-----------|:--:|
-|name|Campaign's name|String|*|
-|description|the campaign details|String|*|
-|shopId|the shop's identifier that offer the campaign|String|*|
-|numCoupons|number of cupons per campaign|Integer|*|
-|algh|type of algoritm to generate coupon's id|String|*|
+|name|Campaign's name|String|*
+|description|the campaign details|String|*
+|shopId|the shop's identifier that offer the campaign|String|*
+|numCoupons|number of cupons per campaign|Integer|*
+|algh|type of algoritm to generate coupon's id|String|*
 |conditions|specification to apply the offer|String|
-|campaignOffer|product disount|String|*|
-|couponsReusable|number of times that a coupon can be used|Boolean|*|
-|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*|
+|campaignOffer|product disount|String|*
+|couponsReusable|number of times that a coupon can be used|Boolean|*
+|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*
 |from|campaign started|Date|
 |to|campaign ended|Date|
 
@@ -196,15 +196,15 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campa
 ###Request Fields###
 |Name|Description|Type|Required|
 |-----|-----|-----------|:--:|
-|name|Campaign's name|String|*|
-|description|the campaign details|String|*|
-|shopId|the shop's identifier that offer the campaign|String|*|
-|numCoupons|number of cupons per campaign|Integer|*|
-|algh|type of algoritm to generate coupon's id|String|*|
+|name|Campaign's name|String|*
+|description|the campaign details|String|*
+|shopId|the shop's identifier that offer the campaign|String|*
+|numCoupons|number of cupons per campaign|Integer|*
+|algh|type of algoritm to generate coupon's id|String|*
 |conditions|specification to apply the offer|String|
-|campaignOffer|product disount|String|*|
-|couponsReusable|number of times that a coupon can be used|Boolean|*|
-|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*|
+|campaignOffer|product disount|String|*
+|couponsReusable|number of times that a coupon can be used|Boolean|*
+|userCanRedeemJustOneCoupon|number of times that user can redeem a coupon|Boolean|*
 |from|campaign started|Date|
 |to|campaign ended|Date|
 
@@ -287,9 +287,9 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/valid
 ###Request Fields###
 |Name|Description|Type|Required|
 |-----|-----|-----------|:--:|
-|couponCode|Coupon code|String|*|
-|userId|User id|String|*|
-|items|List of items in the cart|List<Item>|*|
+|couponCode|Coupon code|String|*
+|userId|User id|String|*
+|items|List of items in the cart|List<Item>|*
 |customProperties|Special properties for shop plugin|Map<String, String>|
 
 ###Errors###
@@ -349,9 +349,9 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/redee
 ###Request Fields###
 |Name|Description|Type|Required|
 |-----|-----|-----------|:--:|
-|couponCode|Coupon code|String|*|
-|userId|User id|String|*|
-|items|List of items in the cart|List<Item>|*|
+|couponCode|Coupon code|String|*
+|userId|User id|String|*
+|items|List of items in the cart|List<Item>|*
 |customProperties|Special properties for shop plugin|Map<String, String>|
 
 ###Errors###
@@ -503,7 +503,6 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/rules
 |Status|Error|Description|
 |------|-----|-----------|
 |401   |unauthorized|When the application has no permission to delete dsls of the shop.
-|404   |not_found|When the dsl does not exist.
 
 + Request
 
