@@ -9,7 +9,7 @@ Create, modify and delete coupon campaigns
 
 ## Create, list [/v1.0/coupon/{shopId}/campaign]
 
-This enpoint allow to create and list campaigns. 
+This enpoint allow to create and list campaigns.
 
 ### Create new campaign [POST]
 Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/campaign
@@ -499,6 +499,7 @@ Header response Location: http://ec.int.bqreaders.com/v1.0/coupon/{shopId}/rules
 |Status|Error|Description|
 |------|-----|-----------|
 |401   |unauthorized|When the application has no permission to delete dsls of the shop.
+|409|conflict|When the sentence removal brokes some campaign.
 
 + Request
 
